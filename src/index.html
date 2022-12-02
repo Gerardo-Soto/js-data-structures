@@ -4,10 +4,13 @@
 		<title>
 			Data Structures - JS
 		</title>
+		<link rel="stylesheet" href="./../style/index.css">
+		<link rel="stylesheet" href="./../style/style-f.css">
 
 	</head>
 
 	<body>
+		<div id="particle-js">
 		<header>
 			<h1>Learn and use the data structures in JS.</h1>
 		</header>
@@ -22,18 +25,42 @@
 
 		<article class="card">
 			<div class="card-body">
-				<p>Stack</p>
-				<input id="push"> </input>
-				<button  onclick="push()">Push</button>
-				<button onclick="pop()">Pop</button>
+				<div class="card-title">
+					<p>Stack</p>
+				</div>
+				<div class="card-input">
+					<label for="outputStack">Current stack</label>
+					<input disabled id="outputStack" type="text" />
+					
+				</div>
+				<div class="card-output">
+					<label for="pushStack">Input data</label>
+					<input id="pushStack" type="text"> </input>
+					<button onclick="push()">Push</button>
+					<button onclick="btnPop()">Pop</button>
+					<input disabled type="text" name="outputPop" id="outputPop">
+					<label for="outputSize">Size</label>
+					<input disabled type="text" name="outputSize" id="outputSize" />
+					<label for="outputEmpty">Is empty?</label>
+					<input disabled type="text" name="outputEmpty" id="outputEmpty">
+					<button onclick="btnPeek()">Peek</button>
+					<input disabled type="text" name="outputPeek" id="outputPeek">
+				</div>
+
 			</div>
 		</article>
 
 		<footer>
 			<h4>Footer</h4>
 		</footer>
+		</div>
 
-		<script type="text/javascript" src="./../js/Fifo.js"></script>
+		<!-- JS Particles.js -->
+		<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+		<!-- JS particles load config -->
+		<script src="./../js/app.js"></script>
+
+		<script type="text/javascript" src="./../js/fifo.js"></script>
 		<script type="text/javascript" src="./../js/stack.js"></script>
 	</body>
 </html>

@@ -26,9 +26,9 @@ class Stack {
 
 	isEmpty() {
 		if (this.top) {
-			return true;
-		} else {
 			return false;
+		} else {
+			return true;
 		}
 	}	
 
@@ -46,31 +46,59 @@ class Stack {
 		for (let i = 1; i <= this.top; i++) {
 			result += this.items[i] + '  ';
 		}
+
+		let elementOutput = document.getElementById('outputStack');
+		elementOutput.value = result;
 		return result;
 	}
 }
 
+let data = document.getElementById('pushStack');
+let size = document.getElementById('outputSize');
+let isEmpty = document.getElementById('outputEmpty');
+let peek = document.getElementById('outputPeek');
+let pop = document.getElementById('outputPop');
+
 function push() {
 	// body...
-	let data = document.getElementById('push');
+	if (data.value == ''){
+		return;
+	}
 	stack.push(data.value);
 	//console.log(stack);
 	let result = stack.print();
-	console.log(result);
+	size.value = stack.getSize();
+	isEmpty.value = stack.isEmpty();
+
+	//console.log(result);
+	data.value = '';
+	peek.value = '';
+	pop.value = '';
 }
 
-function pop() {
-	stack.pop();
+function btnPop() {
+	let popValue = stack.pop();
 	let result = stack.print();
-	console.log(result);
+	pop.value = popValue;
+	size.value = stack.getSize();
+	//console.log(result);
+	isEmpty.value = stack.isEmpty();
+	peek.value = '';
+
+	isEmpty.value += '' + stack.top;
+}
+
+function btnPeek() {
+	let peekValue = stack.peek();
+
+	size.value = stack.getSize();
+	isEmpty = stack.isEmpty();
+	peek.value = peekValue;
 }
 
 // create an object
 const stack = new Stack();
-stack.push('first');
-stack.push('second');
-stack.push('third');
 
-console.log(stack.getSize())
+//console.log(stack.getSize())
 
-console.log(stack);
+//console.log(stack);

@@ -1,26 +1,30 @@
-:root {
-    --border-color: linear-gradient(
-        to right,
-        tomato 0%,
-        gold 100%,
-    );
 
+body {
+    background-image: url('./../images/background.jpg');
+    background-repeat: repeat;
 }
 
+
 .card {
-    background: var(--border-color);
+    background: rgb(204,153,255);
+    background: linear-gradient(221deg, rgba(204,153,255,0.6) 0%, rgba(140,26,255,0.6) 100%);
+
     aspect-ratio: 10/16;
-    width: 500px;
+    width: 80%;
+    height: 10rem;
     padding: 5px;
+    margin: 20px;
     border-radius: 16px;
     position: relative;
 }
 
 .card-body {
-    background: var(--border-color);
+    background: rgba(250, 250, 250, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    
     width: 100%;
     height: 100%;
     border-radius: 12px;
