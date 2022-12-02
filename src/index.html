@@ -10,12 +10,11 @@
 	</head>
 
 	<body>
-		<div id="particle-js">
 		<header>
 			<h1>Learn and use the data structures in JS.</h1>
 		</header>
 
-		<article class="card">
+		<article class="card-fifo">
 			<div class="card-body">
 				<p>FIFO</p>	
 
@@ -23,29 +22,37 @@
 
 		</article>
 
-		<article class="card">
+		<article class="card-stack">
 			<div class="card-body">
 				<div class="card-title">
 					<p>Stack</p>
 				</div>
-				<div class="card-input">
+				<section class="card-input">
 					<label for="outputStack">Current stack</label>
 					<input disabled id="outputStack" type="text" />
 					
-				</div>
-				<div class="card-output">
+				</section>
+				<section class="card-operation">
 					<label for="pushStack">Input data</label>
 					<input id="pushStack" type="text"> </input>
 					<button onclick="push()">Push</button>
+				</section>
+				<section class="card-operation">
 					<button onclick="btnPop()">Pop</button>
 					<input disabled type="text" name="outputPop" id="outputPop">
+				</section>
+				<section class="card-operation">
 					<label for="outputSize">Size</label>
 					<input disabled type="text" name="outputSize" id="outputSize" />
+				</section>
+				<section class="card-operation">
 					<label for="outputEmpty">Is empty?</label>
-					<input disabled type="text" name="outputEmpty" id="outputEmpty">
+					<input disabled type="text" name="outputEmpty" id="outputEmpty" value="true">
+				</section>
+				<section class="card-operation">
 					<button onclick="btnPeek()">Peek</button>
 					<input disabled type="text" name="outputPeek" id="outputPeek">
-				</div>
+				</section>
 
 			</div>
 		</article>
@@ -53,7 +60,6 @@
 		<footer>
 			<h4>Footer</h4>
 		</footer>
-		</div>
 
 		<!-- JS Particles.js -->
 		<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
