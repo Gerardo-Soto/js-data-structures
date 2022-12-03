@@ -1,5 +1,18 @@
-// Linked List
+/* Linked List
 
+ Una lista enlazada es una coleccion **lineal** constutituida por una secuencia de *nodos* en donde se guardan campos de datos arbitrarios y una referencia al siguiente nodo.
+
+Operations:
+	-Node constructor
+	-LinkedList constructor
+	-add
+	-insertAt
+	-removeFrom
+	-removeElement
+	-isEmpty
+	-getSize
+	-print
+*/
 class Node {
 	constructor(data, next) {
 		this.data = data;
@@ -22,7 +35,7 @@ class LinkedList {
 			this.head = newNode;
 		} else {
 			let current = this.head;// current is a Node
-			// recorre toda la lista hasta el Nodo.next = null
+			// traverses the entire list up to the Node.next == null
 			while (current.next) {
 				current = current.next;
 			};
@@ -32,16 +45,23 @@ class LinkedList {
 	};
 
 	insertAt(data, index) {
-		//check if index is into the linkedlist
+		//check if index is into the linkedList
 		if (index < 0 || index > this.size) {
 			return false;
 		};
-		// if this index is into the linkedlist, create the node
-		const newNode = newNode(data);
+
+		// if this index is into the linkedList, create the node
+		const newNode = new Node(data);
+		
+		//Data to traverse the list
+		let current	
 
 	};
+
 	removeFrom(head) {};
+	
 	removeElement(data) {};
+	
 	isEmpty() {
 		if(this.size === 0){
 			return true;
