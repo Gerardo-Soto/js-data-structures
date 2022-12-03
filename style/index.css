@@ -18,6 +18,10 @@ label {
     font-size: large;
 }
 
+button {
+    font-size: medium;
+}
+
 input {
     border-radius: 10px;
     font-size: large;
@@ -29,7 +33,7 @@ input {
 
     aspect-ratio: 10/16;
     width: 80%;
-    height: 10rem;
+    height: 20rem;
     padding: 5px;
     margin: 20px;
     border-radius: 16px;
@@ -64,9 +68,13 @@ input {
     
 }
 
+.card-input input {
+   /*width: 100%; */
+}
+
 .card-operation {
     padding: 10px;
-    width: 50%;
+    width: 70%;
 
     display: flex;
     align-content: space-around;
@@ -74,5 +82,20 @@ input {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+}
+
+.btn {
+    border-radius: 18px;
+    background: rgb(230, 208, 253);
+    box-shadow:  -9px 9px 25px rgba(140,26,255,0.6),
+        9px -9px 25px rgb(230, 208, 253);
+    
+}
+
+.btn:active {
+    border-radius: 18px;
+    background: linear-gradient(225deg, #e6e6e6, rgba(140,26,255,0.4));
+    box-shadow:  -9px 9px 25px #c4c4c4,
+        9px -9px 25px #ffffff;
 }
 

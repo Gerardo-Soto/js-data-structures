@@ -1,26 +1,119 @@
-// enqueue & dequeuee
-class Fifo {
+// FIFO
+// enqueue & dequeue
+class Queue {
 	constructor() {
-		this.start = 0;
-		this.top = 0;
 		this.items = {};
+		this.front = 0;
+		this.end = 0;
 	};
 
 	enqueue(data) {
-		this.top++;
-		this.items[this.top] = data;
+		// add the element data at the end:
+		this.items[this.end] = data;
+		this.end++;
 	};
 
 	dequeue() {
-		delete this.items[0];
-		this.top--;
+		// check if the queue is empty
+		if (this.front === this.end) {
+			return null;
+		}
+
+		// delete the first value in the Queue
+		const data = this.items[this.front];
+		delete this.items[this.front];
+		this.front++;
+		return data;
 	}
 
-	getSize() {}
+	getSize() {
+		return this.end - this.front;
+	}
 
-	isEmpty() {}
+	isEmpty() {
+		if (this.getSize() === 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-	peek() {}
+	peek() {
+		if (this.getSize() === 0) {
+			return null;
+		} else {
+			return this.items[this.front];
+		}
+	}
 
-	print() {}
+	print() {
+		if (this.getSize() === 0) {
+			return null;
+		} else {
+			let result = '' 
+			for (let index = this.front; index < this.end; index++) {
+				result += this.items[index] + ', ';
+				
+			}
+			
+			return result;
+		}
+	}
 }
+
+
+// input
+let enqueueData = document.getElementById('enqueueInput');
+
+// outputs
+let outputQueue = document.getElementById('outputQueue');
+let dequeueOutput = document.getElementById('dequeueOutput');
+let queueSize = document.getElementById('queueSize');
+let queueEmpty = document.getElementById('queueEmpty');
+let queuePeek = document.getElementById('queuePeek');
+
+
+function btnEnqueueInput() {
+	let data = enqueueData.value;
+
+	if (data === '') {
+		return;
+	}
+	queue.enqueue(data);
+
+	enqueueData.value = '';
+
+	let size = queue.getSize();
+	queueSize.value = size;
+
+	let isEmpty = queue.isEmpty();
+	queueEmpty.value = isEmpty;
+
+	let result = queue.print();
+	outputQueue.value = result;
+}
+
+function btnDequeueInput() {
+	let data = queue.dequeue();
+	dequeueOutput.value = data;
+
+	let size = queue.getSize();
+	queueSize.value = size;
+
+	let isEmpty = queue.isEmpty();
+	queueEmpty.value = isEmpty;
+
+	let result = queue.print();
+	outputQueue.value = result;
+}
+
+function btnQueuePeek() {
+	let data = queue.peek();
+	queuePeek.value = data;
+}
+
+
+
+// create a queue object
+const queue = new Queue();
+
