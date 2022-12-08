@@ -54,13 +54,72 @@ class LinkedList {
 		const newNode = new Node(data);
 		
 		//Data to traverse the list
-		let current	
+		let current	= this.head;
+		let previous;
 
+		if (index === 0) {
+			newNode.next = current;
+			this.head = newNode;
+		} else {
+			for (let i = 0; i < index; i++) {
+				previous = current;
+				current = current.next;
+			};
+
+			newNode.next = current;
+			previous.next = newNode;
+		};
+		this.size++;
 	};
 
-	removeFrom(head) {};
+	removeFrom(index) {
+
+		if (index < 0 || index > this.size) {
+			return null;	
+		};
+
+		let currentNode = this.head;
+		let previousNode = null;
+
+		if (index === 0) {
+			this.head = currentNode.next;
+		} else {
+			for (let i = 0; i < index; i++) {
+				previousNode = currentNode;
+				currentNode = currentNode.next;
+			};
+			previousNode.next = currentNode.next;
+		};
+
+		this.size--;
+		return currentNode.data;
+	};
 	
-	removeElement(data) {};
+	removeData(data) {
+		let currentNode = this.head;
+		let previousNode = null;
+
+		while (currentNode != null) {
+			// data found it:
+			if (currentNode === data) {
+				// the data is in the head?
+				if (!previousNode) {
+					this.head = currentNode.next;
+				} else {
+					// pass the node current
+					previousNode.next = currentNode.next;
+				}
+
+				this.size--;
+				return currentNode.data;
+			}
+
+			// Data not found, next node
+			previousNode = currentNode;
+			currentNode.next;
+		}
+		return null;
+	};
 	
 	isEmpty() {
 		if(this.size === 0){
@@ -69,8 +128,21 @@ class LinkedList {
 			return false;
 		}
 	};
+
 	getSize() {
 		return this.size;
 	};
-	print() {};
-}
+
+	print() {
+		let current = this.head;
+		let result = '[';
+
+		while (current) {
+			result += current.data += ' -> ';
+			current.next;
+		};
+
+		result += ']';
+		return result;
+	};
+};
