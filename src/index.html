@@ -83,6 +83,50 @@
 			</div>
 		</article>
 
+		<article class="card-linkedlist">
+			<div class="card-body">
+				<div class="card-title">
+					<p>LinkedList</p>
+				</div>
+				<section class="card-input">
+					<label for="outputStack">Current LinkedList</label>
+					<input disabled id="currentLinkedList" type="text" />
+					
+				</section>
+				<section class="card-operation">
+					<label for="addLinkedList">Input data</label>
+					<input id="addLinkedList" type="text" />
+					<button class="btn" onclick="btnAddLinkedList()">Add</button>
+				</section>
+				<section class="card-operation">
+					<label for="addAtLinkedList">Input at index</label>
+					<input id="addAtLinkedList" type="number" />
+					<label for="">data</label>
+					<input id="addDataAtLinkedList" type="text" />
+					<button class="btn" onclick="btnAddAtLinkedList()">Add at</button>
+				</section>
+				<section class="card-operation">
+					<label for="removeFromLinkedList">Remove from</label>
+					<input type="number" name="removeFromLinkedList" id="removeFromLinkedList">
+					<button class="btn" onclick="btnRemoveFromLinkedList()">Remove</button>
+				</section>
+				<section class="card-operation">
+					<label for="removeDataLinkedList">Remove data</label>
+					<input type="number" name="removeDataLinkedList" id="removeDataLinkedList">
+					<button class="btn" onclick="btnRemoveDataLinkedList()">Remove</button>
+				</section>
+				<section class="card-operation">
+					<label for="outputSizeLinkedList">Size</label>
+					<input disabled type="text" name="outputSizeLinkedList" id="outputSizeLinkedList" value="0" />
+				</section>
+				<section class="card-operation">
+					<label for="outputEmptyLinkedList">Is empty?</label>
+					<input disabled type="text" name="outputEmptyLinkedList" id="outputEmptyLinkedList" value="true">
+				</section>
+
+			</div>
+		</article>
+
 		<footer>
 			<h4>Footer</h4>
 		</footer>
@@ -90,5 +134,6 @@
 
 		<script type="text/javascript" src="./../js/fifo.js"></script>
 		<script type="text/javascript" src="./../js/stack.js"></script>
+		<script type="text/javascript" src="./../js/LinkedList.js"></script>
 	</body>
 </html>

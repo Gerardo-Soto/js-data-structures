@@ -47,7 +47,7 @@ class Stack {
 		let result = '';
 
 		for (let i = 1; i <= this.top; i++) {
-			result += this.items[i] + '  ';
+			result += this.items[i] + ', ';
 		}
 
 		let elementOutput = document.getElementById('outputStack');
@@ -104,6 +104,12 @@ function btnPeek() {
 	//isEmpty = stack.isEmpty();
 	peek.value = peekValue;
 }
+
+data.addEventListener('keydown', ({key}) => {
+	if (key === 'Enter') {
+		push();
+	};
+});
 
 // create an object
 const stack = new Stack();

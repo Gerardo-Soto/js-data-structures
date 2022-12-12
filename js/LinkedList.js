@@ -44,7 +44,8 @@ class LinkedList {
 		this.size++;
 	};
 
-	insertAt(data, index) {
+	insertAt(indexInput, data) {
+		const index = parseInt(indexInput);
 		//check if index is into the linkedList
 		if (index < 0 || index > this.size) {
 			return false;
@@ -55,19 +56,22 @@ class LinkedList {
 		
 		//Data to traverse the list
 		let current	= this.head;
-		let previous;
+		let previous = null;
 
-		if (index === 0) {
+		if (index == 0) {
 			newNode.next = current;
 			this.head = newNode;
+			console.log('index 0');
 		} else {
 			for (let i = 0; i < index; i++) {
 				previous = current;
 				current = current.next;
+				console.log('index: ' + i);
 			};
 
 			newNode.next = current;
 			previous.next = newNode;
+
 		};
 		this.size++;
 	};
@@ -87,6 +91,7 @@ class LinkedList {
 			for (let i = 0; i < index; i++) {
 				previousNode = currentNode;
 				currentNode = currentNode.next;
+				console.log('index: ' + 1);
 			};
 			previousNode.next = currentNode.next;
 		};
@@ -134,15 +139,127 @@ class LinkedList {
 	};
 
 	print() {
-		let current = this.head;
+		let currentNode = this.head;
 		let result = '[';
 
-		while (current) {
-			result += current.data += ' -> ';
-			current.next;
+		while (currentNode) {
+			result += currentNode.data + ' -> ';
+			currentNode = currentNode.next;
 		};
 
 		result += ']';
 		return result;
 	};
 };
+
+
+let currentLinkedList = document.getElementById('currentLinkedList');
+let addLinkedList = document.getElementById('addLinkedList');
+let addAtLinkedList = document.getElementById('addAtLinkedList');
+let addDataAtLinkedList = document.getElementById('addDataAtLinkedList');
+let removeFromLinkedList = document.getElementById('removeFromLinkedList');
+let removeDataLinkedList = document.getElementById('removeDataLinkedList');
+let outputSizeLinkedList = document.getElementById('outputSizeLinkedList');
+let outputEmptyLinkedList = document.getElementById('outputEmptyLinkedList');
+
+
+function btnAddLinkedList() {
+	const data = addLinkedList.value;
+	
+	if (data === '') {
+		return;
+	};
+	
+	linkedList.add(data);
+
+	updateForm();
+};
+
+function btnAddAtLinkedList() {
+	let index = addAtLinkedList.value;
+	index = parseInt(index);
+
+	if (index < 0 || index > linkedList.getSize()) {
+		addAtLinkedList.value = '';
+		addDataAtLinkedList.value = 'Error: stack overflow.';
+		return;
+	}
+
+	const data = parseInt(addDataAtLinkedList.value);
+
+	linkedList.insertAt(index, data);
+
+	updateForm();
+};
+
+function btnRemoveFromLinkedList() {
+	const indexRemove = parseInt(removeFromLinkedList.value);
+
+	const dataRemoved = linkedList.removeData(indexRemove);
+
+	updateForm();
+};
+
+function btnRemoveDataLinkedList() {
+	const data = removeDataLinkedList.value;
+
+	const dataRemoved = linkedList.removeData(data);
+
+	updateForm();
+};
+
+function updateForm() {
+	const result = linkedList.print();
+	currentLinkedList.value = result;
+	addLinkedList.value = '';
+
+	addAtLinkedList = '';
+
+	removeFromLinkedList = '';
+	
+	removeDataLinkedList = '';
+
+	const size = linkedList.getSize();
+	outputSizeLinkedList.value = size;
+
+	const isEmpty = linkedList.isEmpty();
+	outputEmptyLinkedList.value = isEmpty;
+}
+
+//const add = addLinkedList.addEventListener('keydown', enterAdd);
+
+addLinkedList.addEventListener('keydown', ({key}) => {
+	if (key === "Enter") {
+		btnAddLinkedList();
+	};
+});
+
+addAtLinkedList.addEventListener('keydown', ({key}) =>{
+	if (key === "Enter") {
+		btnAddAtLinkedList();
+	};
+});
+
+addDataAtLinkedList.addEventListener('keydown', ({key}) => {
+	if (key === "Enter") {
+		btnAddAtLinkedList();
+	};
+});
+
+removeFromLinkedList.addEventListener('keydown', ({key}) => {
+	if (key === "Enter") {
+		btnRemoveFromLinkedList();
+	};
+})
+
+
+// Create an Object
+const linkedList = new LinkedList();
+
+linkedList.add(1);
+linkedList.add(2);
+linkedList.add(3);
+linkedList.insertAt(1,'a');
+
+
+console.log(linkedList.print());

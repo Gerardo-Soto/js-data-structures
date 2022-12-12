@@ -53,6 +53,19 @@ input {
     position: relative;
 }
 
+.card-linkedlist {
+    background: rgb(204,153,255);
+    background: linear-gradient(221deg, rgba(204,153,255,0.6) 0%, rgba(140,26,255,0.6) 100%);
+
+    aspect-ratio: 10/16;
+    width: 80%;
+    height: 23rem;
+    padding: 5px;
+    margin: 20px;
+    border-radius: 16px;
+    position: relative;
+}
+
 
 .card-body {
     background: rgba(250, 250, 250, 0.3);
@@ -89,13 +102,13 @@ input {
     background: rgb(230, 208, 253);
     box-shadow:  -9px 9px 25px rgba(140,26,255,0.6),
         9px -9px 25px rgb(230, 208, 253);
-    
+    cursor: pointer;
 }
 
 .btn:active {
     border-radius: 18px;
     background: linear-gradient(225deg, #e6e6e6, rgba(140,26,255,0.4));
-    box-shadow:  -9px 9px 25px #c4c4c4,
-        9px -9px 25px #ffffff;
+    box-shadow:  -9px 9px 25px rgba(196,196,196,0.4),
+        9px -9px 25px rgba(255,255,255,0.8);
 }
 

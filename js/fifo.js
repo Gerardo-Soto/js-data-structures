@@ -112,7 +112,11 @@ function btnQueuePeek() {
 	queuePeek.value = data;
 }
 
-
+enqueueData.addEventListener('keydown', ({key}) => {
+	if (key === "Enter") {
+		btnEnqueueInput();
+	}
+});
 
 // create a queue object
 const queue = new Queue();
