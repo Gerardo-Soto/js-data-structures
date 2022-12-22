@@ -82,7 +82,8 @@ input {
 }
 
 .card-input input {
-   /*width: 100%; */
+   width: 30rem;
+   margin-left: 1rem;
 }
 
 .card-operation {
@@ -103,6 +104,8 @@ input {
     box-shadow:  -9px 9px 25px rgba(140,26,255,0.6),
         9px -9px 25px rgb(230, 208, 253);
     cursor: pointer;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .btn:active {

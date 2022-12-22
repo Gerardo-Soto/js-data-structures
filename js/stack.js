@@ -25,12 +25,12 @@ class Stack {
 	}
 
 	isEmpty() {
-		console.log(this.top);
+		//console.log(this.top);
 		if (this.top > 0) {
-			console.log('>false');
+			//console.log('>false');
 			return false;
 		} else {
-			console.log('>true');
+			//console.log('>true');
 			return true;
 		}
 	}	
@@ -77,7 +77,7 @@ function push() {
 	data.value = '';
 	peek.value = '';
 	pop.value = '';
-}
+};
 
 function btnPop() {
 	let popValue = stack.pop();
@@ -95,15 +95,19 @@ function btnPop() {
 	// clean inputs:
 	peek.value = '';
 	isEmpty.value += '';// + stack.top;
-}
+};
 
 function btnPeek() {
 	let peekValue = stack.peek();
 
 	size.value = stack.getSize();
 	//isEmpty = stack.isEmpty();
-	peek.value = peekValue;
-}
+	if (size.value == 0) {
+		peek.value = 'Stack Empty.'
+	} else {
+		peek.value = peekValue;
+	};
+};
 
 data.addEventListener('keydown', ({key}) => {
 	if (key === 'Enter') {

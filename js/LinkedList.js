@@ -24,7 +24,8 @@ class LinkedList {
 	constructor() {
 		this.head = null;
 		this.size = 0;
-	}
+	};
+	
 	add(data) {
 		//Create a node with data 
 		const newNode = new Node(data, null);
@@ -44,8 +45,8 @@ class LinkedList {
 		this.size++;
 	};
 
-	insertAt(indexInput, data) {
-		const index = parseInt(indexInput);
+	insertAt(index, data) {
+		//console.log('my index:::'+index);
 		//check if index is into the linkedList
 		if (index < 0 || index > this.size) {
 			return false;
@@ -55,20 +56,20 @@ class LinkedList {
 		const newNode = new Node(data);
 		
 		//Data to traverse the list
-		let current	= this.head;
-		let previous = null;
+		let current	= this.head.next;
+		let previous = this.head;
 
 		if (index == 0) {
-			newNode.next = current;
+			newNode.next = this.head;
 			this.head = newNode;
-			console.log('index 0');
 		} else {
-			for (let i = 0; i < index; i++) {
+			for (let i = 1; i < index; i++) {
 				previous = current;
 				current = current.next;
-				console.log('index: ' + i);
+				//console.log('index: ' + i);
 			};
 
+			//console.log('end insertAt.');
 			newNode.next = current;
 			previous.next = newNode;
 
@@ -78,20 +79,20 @@ class LinkedList {
 
 	removeFrom(index) {
 
-		if (index < 0 || index > this.size) {
-			return null;	
+		if (index < 0 || index >= this.size) {
+			return null;
 		};
 
 		let currentNode = this.head;
 		let previousNode = null;
-
-		if (index === 0) {
+		//console.log(typeof(index), index);
+		if (index == 0) {
 			this.head = currentNode.next;
 		} else {
 			for (let i = 0; i < index; i++) {
 				previousNode = currentNode;
 				currentNode = currentNode.next;
-				console.log('index: ' + 1);
+				//console.log('index: ' + i);
 			};
 			previousNode.next = currentNode.next;
 		};
@@ -103,26 +104,33 @@ class LinkedList {
 	removeData(data) {
 		let currentNode = this.head;
 		let previousNode = null;
+		
+		//console.log('data: '+ data +'  head: '+currentNode.data);
 
 		while (currentNode != null) {
 			// data found it:
-			if (currentNode === data) {
+			if (currentNode.data == data) {
 				// the data is in the head?
-				if (!previousNode) {
+				if (previousNode === null) {
 					this.head = currentNode.next;
+					this.size--;
+					//console.log('Data found it::: Node.value: '+currentNode.data+', data: '+ data);
+					return currentNode.data;
 				} else {
 					// pass the node current
 					previousNode.next = currentNode.next;
-				}
+					this.size--;
+					//console.log('Data found it::: Node.value: '+currentNode.data+', data: '+ data);
+					return currentNode.data;
+				};
 
-				this.size--;
-				return currentNode.data;
-			}
+			};
 
 			// Data not found, next node
 			previousNode = currentNode;
-			currentNode.next;
-		}
+			currentNode = currentNode.next;
+		};
+		//console.log('Data not found.');
 		return null;
 	};
 	
@@ -131,7 +139,7 @@ class LinkedList {
 			return true;
 		} else {
 			return false;
-		}
+		};
 	};
 
 	getSize() {
@@ -143,7 +151,10 @@ class LinkedList {
 		let result = '[';
 
 		while (currentNode) {
-			result += currentNode.data + ' -> ';
+			result += currentNode.data;
+			if (currentNode.next != null) {
+				result += ' -> ';
+			}
 			currentNode = currentNode.next;
 		};
 
@@ -153,11 +164,13 @@ class LinkedList {
 };
 
 
+
+
 let currentLinkedList = document.getElementById('currentLinkedList');
 let addLinkedList = document.getElementById('addLinkedList');
 let addAtLinkedList = document.getElementById('addAtLinkedList');
 let addDataAtLinkedList = document.getElementById('addDataAtLinkedList');
-let removeFromLinkedList = document.getElementById('removeFromLinkedList');
+let removeFromLinkedList = document.getElementById('aaa');
 let removeDataLinkedList = document.getElementById('removeDataLinkedList');
 let outputSizeLinkedList = document.getElementById('outputSizeLinkedList');
 let outputEmptyLinkedList = document.getElementById('outputEmptyLinkedList');
@@ -171,60 +184,69 @@ function btnAddLinkedList() {
 	};
 	
 	linkedList.add(data);
-
+	
 	updateForm();
 };
 
 function btnAddAtLinkedList() {
 	let index = addAtLinkedList.value;
+	const data = addDataAtLinkedList.value;
+	
 	index = parseInt(index);
-
+	//console.log('index value:::' + index);
+	
 	if (index < 0 || index > linkedList.getSize()) {
 		addAtLinkedList.value = '';
 		addDataAtLinkedList.value = 'Error: stack overflow.';
 		return;
-	}
-
-	const data = parseInt(addDataAtLinkedList.value);
-
+	};
+	
+	
+	//console.log('index: '+ index +', data: '+ data);
 	linkedList.insertAt(index, data);
-
+	
 	updateForm();
 };
 
 function btnRemoveFromLinkedList() {
-	const indexRemove = parseInt(removeFromLinkedList.value);
-
-	const dataRemoved = linkedList.removeData(indexRemove);
-
+	const indexRemove = removeFromLinkedList.value;
+	//console.log('-> btnRemoveFromLinkedList(), indexRemove.value: '+ indexRemove);
+	const dataRemoved = linkedList.removeFrom(indexRemove);
+	
 	updateForm();
 };
 
 function btnRemoveDataLinkedList() {
-	const data = removeDataLinkedList.value;
-
-	const dataRemoved = linkedList.removeData(data);
-
-	updateForm();
+	const data = removeDataLinkedList;
+	
+	if (data.value == '') {
+		return;
+	} else {
+		//console.log('data value:::'+ data.value);
+		const dataRemoved = linkedList.removeData(data.value);
+		updateForm();
+	};
 };
 
 function updateForm() {
 	const result = linkedList.print();
 	currentLinkedList.value = result;
 	addLinkedList.value = '';
-
-	addAtLinkedList = '';
-
-	removeFromLinkedList = '';
 	
-	removeDataLinkedList = '';
+	addAtLinkedList.value = '';
 
+	addDataAtLinkedList.value = '';
+	
+	removeFromLinkedList.value = '';
+	
+	removeDataLinkedList.value = '';
+	
 	const size = linkedList.getSize();
 	outputSizeLinkedList.value = size;
-
+	
 	const isEmpty = linkedList.isEmpty();
 	outputEmptyLinkedList.value = isEmpty;
-}
+};
 
 //const add = addLinkedList.addEventListener('keydown', enterAdd);
 
@@ -250,16 +272,48 @@ removeFromLinkedList.addEventListener('keydown', ({key}) => {
 	if (key === "Enter") {
 		btnRemoveFromLinkedList();
 	};
-})
+});
+
+removeDataLinkedList.addEventListener('keydown', ({key}) => {
+	if (key === "Enter") {
+		btnRemoveDataLinkedList();
+	};
+});
+
 
 
 // Create an Object
 const linkedList = new LinkedList();
 
+/*
+console.log('Process LinkedList Starting.');
+
 linkedList.add(1);
 linkedList.add(2);
 linkedList.add(3);
-linkedList.insertAt(1,'a');
-
-
 console.log(linkedList.print());
+console.log('Inserting:');
+linkedList.insertAt(0,'O');
+linkedList.insertAt(1,'a');
+linkedList.insertAt(3,'b')
+linkedList.insertAt(5,'c');
+linkedList.insertAt(7,'c');
+console.log(linkedList.print());
+
+console.log('Remove from: index 0');
+linkedList.removeFrom(0);
+//console.log('index 2');
+linkedList.removeFrom(1);
+//console.log('last index');
+linkedList.removeFrom(0);
+console.log(linkedList.print());
+
+console.log('Removing data: (b, 3, c, x)');
+linkedList.removeData('3');
+linkedList.removeData('b');
+linkedList.removeData('c');
+linkedList.removeData('x');
+console.log(linkedList.print());
+
+console.log('Process LinkedList Finished.');
+*/
