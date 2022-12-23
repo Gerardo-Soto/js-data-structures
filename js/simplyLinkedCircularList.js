@@ -65,13 +65,8 @@ class SimplyLinkedCircularList {
 			this.head = newNode;
 
             //last node point to this newNode
-            for (let i = 0; i < this.size; i++) {
-                previous = current;
-                current = current.next;
-            }
-            // current is the last node:
-            current.next = newNode;
-
+            this.tail.next = newNode
+            //console.log('index:0  head:'+ this.head.data +', tail:'+ this.tail.data);    
         } else if (index == this.size) {
             this.tail.next = newNode;
             newNode.next = this.head;
@@ -88,9 +83,9 @@ class SimplyLinkedCircularList {
 			previous.next = newNode;
 
 		};
-		this.size++;
 
-        console.log('head:'+ this.head +', tail:'+ this.tail);
+		this.size++;
+        //console.log('head:'+ this.head.data +', tail:'+ this.tail.data);
 	};
 
 
@@ -181,18 +176,17 @@ class SimplyLinkedCircularList {
 	};
 
 	print() {
+        //console.log('printing:');
 		let currentNode = this.head;
-		let result = '[';
-
-		while (currentNode) {
-			result += currentNode.data;
-			if (currentNode.next != null) {
-				result += ' -> ';
-			}
+		let result = '[ START -> ';
+        let i = 0;
+		while (i < this.size) {
+			result += currentNode.data + ' -> ';
 			currentNode = currentNode.next;
+            i++;
 		};
 
-		result += ']';
+		result += ' START ]';
 		return result;
 	};
 };
@@ -205,13 +199,15 @@ simplyLinkedCircularList.add(1);
 simplyLinkedCircularList.add(2);
 simplyLinkedCircularList.add(3);
 
-console.log(simplyLinkedCircularList.print());
+
 simplyLinkedCircularList.insertAt(0,'a');
 console.log(simplyLinkedCircularList.print());
 simplyLinkedCircularList.insertAt(1,'b');
 console.log(simplyLinkedCircularList.print());
 simplyLinkedCircularList.insertAt(2,'c');
-
 console.log(simplyLinkedCircularList.print());
+simplyLinkedCircularList.insertAt(6,'X');
+console.log(simplyLinkedCircularList.print());
+
 
 console.log('SLCL Finished');
