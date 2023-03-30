@@ -13,178 +13,230 @@
 		<header>
 			<h1>Learn and use the data structures in JS.</h1>
 		</header>
+		<div class="container">
+			<div class="card-list">
+				<article class="card-fifo">
+					<div class="card-body">
+						<div class="card-title">
+							<p>Queue</p>
+						</div>
+						<section class="card-input">
+							<label for="outputQueue">Current Queue</label>
+							<input disabled id="outputQueue" type="text" />
+						</section>
+						<section class="card-operation">
+							<label for="enqueueInput">Input data</label>
+							<input id="enqueueInput" type="text" />
+							<button class="btn" onclick="btnEnqueueInput()">Enqueue</button>
+						</section>
+						<section class="card-operation">
+							<button class="btn" onclick="btnDequeueInput()">Dequeue</button>
+							<input disabled	 id="dequeueOutput" type="text" />
+						</section>
+						<section class="card-operation">
+							<label for="queueSize">Queue size</label>
+							<input disabled	 id="queueSize" type="text" value="0" />
+						</section>
+						<section class="card-operation">
+							<label for="queueEmpty">Is empty?</label>
+							<input disabled	 id="queueEmpty" type="text" value="true" />
+						</section>
+						<section class="card-operation">
+							<button class="btn" onclick="btnQueuePeek()">Peek</button>
+							<input disabled	 id="queuePeek" type="text" />
+						</section>
+						
+					</div>
 
-		<article class="card-fifo">
-			<div class="card-body">
-				<div class="card-title">
-					<p>Queue</p>
-				</div>
-				<section class="card-input">
-					<label for="outputQueue">Current Queue</label>
-					<input disabled id="outputQueue" type="text" />
-				</section>
-				<section class="card-operation">
-					<label for="enqueueInput">Input data</label>
-					<input id="enqueueInput" type="text" />
-					<button class="btn" onclick="btnEnqueueInput()">Enqueue</button>
-				</section>
-				<section class="card-operation">
-					<button class="btn" onclick="btnDequeueInput()">Dequeue</button>
-					<input disabled	 id="dequeueOutput" type="text" />
-				</section>
-				<section class="card-operation">
-					<label for="queueSize">Queue size</label>
-					<input disabled	 id="queueSize" type="text" value="0" />
-				</section>
-				<section class="card-operation">
-					<label for="queueEmpty">Is empty?</label>
-					<input disabled	 id="queueEmpty" type="text" value="true" />
-				</section>
-				<section class="card-operation">
-					<button class="btn" onclick="btnQueuePeek()">Peek</button>
-					<input disabled	 id="queuePeek" type="text" />
-				</section>
-				
+				</article>
+
+				<article class="card-stack">
+					<div class="card-body">
+						<div class="card-title">
+							<p>Stack</p>
+						</div>
+						<section class="card-input">
+							<label for="outputStack">Current stack</label>
+							<input disabled id="outputStack" type="text" />
+							
+						</section>
+						<section class="card-operation">
+							<label for="pushStack">Input data</label>
+							<input id="pushStack" type="text" />
+							<button class="btn" onclick="push()">Push</button>
+						</section>
+						<section class="card-operation">
+							<button class="btn" onclick="btnPop()">Pop</button>
+							<input disabled type="text" name="outputPop" id="outputPop">
+						</section>
+						<section class="card-operation">
+							<label for="outputSize">Size</label>
+							<input disabled type="text" name="outputSize" id="outputSize" value="0" />
+						</section>
+						<section class="card-operation">
+							<label for="outputEmpty">Is empty?</label>
+							<input disabled type="text" name="outputEmpty" id="outputEmpty" value="true">
+						</section>
+						<section class="card-operation">
+							<button class="btn" onclick="btnPeek()">Peek</button>
+							<input disabled type="text" name="outputPeek" id="outputPeek">
+						</section>
+
+					</div>
+				</article>
+
+				<article class="card-linkedlist">
+					<div class="card-body">
+						<div class="card-title">
+							<p>LinkedList</p>
+						</div>
+						<section class="card-input">
+							<label for="outputStack">Current LinkedList</label>
+							<input disabled id="currentLinkedList" type="text" />
+							
+						</section>
+						<section class="card-operation">
+							<label for="addLinkedList">Input data</label>
+							<input id="addLinkedList" type="text" />
+							<button class="btn" onclick="btnAddLinkedList()">Add</button>
+						</section>
+						<section class="card-operation">
+							<label for="addAtLinkedList">Input at index</label>
+							<input id="addAtLinkedList" type="number" />
+							<label for="addDataAtLinkedList">data</label>
+							<input id="addDataAtLinkedList" type="text" />
+							<button class="btn" onclick="btnAddAtLinkedList()">Add at</button>
+						</section>
+						<section class="card-operation">
+							<label for="removeFromLinkedList">Remove from</label>
+							<input type="number" name="removeFromLinkedList" id="aaa" />
+							<button class="btn" onclick="btnRemoveFromLinkedList()">Remove</button>
+						</section>
+						<section class="card-operation">
+							<label for="removeDataLinkedList">Remove data</label>
+							<input name="removeDataLinkedList" id="removeDataLinkedList" type="text" />
+							<button class="btn" onclick="btnRemoveDataLinkedList()">Remove</button>
+						</section>
+						<section class="card-operation">
+							<label for="outputSizeLinkedList">Size</label>
+							<input disabled type="text" name="outputSizeLinkedList" id="outputSizeLinkedList" value="0" />
+						</section>
+						<section class="card-operation">
+							<label for="outputEmptyLinkedList">Is empty?</label>
+							<input disabled type="text" name="outputEmptyLinkedList" id="outputEmptyLinkedList" value="true" />
+						</section>
+
+					</div>
+				</article>
+
+				<article class="card-simplyLinkedCircularList">
+					<div class="card-body">
+						<div class="card-title">
+							<p>Simply Linked Circular List</p>
+						</div>
+						<section class="card-input">
+							<label for="currentSimplyLinkedCircularList">Current List</label>
+							<input disabled id="currentSimplyLinkedCircularList" type="text" />
+						</section>
+						<section class="card-input">
+							<label for="currentSimplyLinkedCircularListData">Current data</label>
+							<input id="currentSimplyLinkedCircularListData" type="text" />
+							<button class="btn" onclick="btnSimplyLinkedCircularListNext()">Next</button>
+						</section>
+
+
+
+						<section class="card-operation">
+							<label for="addSimplyLinkedCircularList">Input data</label>
+							<input id="addSimplyLinkedCircularList" type="text" />
+							<button class="btn" onclick="btnAddSimplyLinkedCircularList()">Add</button>
+						</section>
+						<section class="card-operation">
+							<label for="addAtSimplyLinkedCircularList">Input at index</label>
+							<input id="addAtSimplyLinkedCircularList" type="number" />
+							<label for="addDataAtSimplyLinkedCircularList">data</label>
+							<input id="addDataAtSimplyLinkedCircularList" type="text" />
+							<button class="btn" onclick="btnAddAtSimplyLinkedCircularList()">Add at</button>
+						</section>
+						<section class="card-operation">
+							<label for="removeFromSimplyLinkedCircularList">Remove from</label>
+							<input type="number" name="removeFromSimplyLinkedCircularList" id="removeFromSimplyLinkedCircularList" />
+							<button class="btn" onclick="btnRemoveFromSimplyLinkedCircularList()">Remove</button>
+						</section>
+						<section class="card-operation">
+							<label for="removeDataSimplyLinkedCircularList">Remove data</label>
+							<input name="removeDataSimplyLinkedCircularList" id="removeDataSimplyLinkedCircularList" type="text" />
+							<button class="btn" onclick="btnRemoveDataSimplyLinkedCircularList()">Remove</button>
+						</section>
+						<section class="card-operation">
+							<label for="outputSizeSimplyLinkedCircularList">Size</label>
+							<input disabled type="text" name="outputSizeSimplyLinkedCircularList" id="outputSizeSimplyLinkedCircularList" value="0" />
+						</section>
+						<section class="card-operation">
+							<label for="outputEmptySimplyLinkedCircularList">Is empty?</label>
+							<input disabled type="text" name="outputEmptySimplyLinkedCircularList" id="outputEmptySimplyLinkedCircularList" value="true" />
+						</section>
+					</div>
+				</article>
+
+				<article class="card-dictionary">
+					<div class="card-body">
+						<div class="card-title">
+							<p>Dictionary</p>
+						</div>
+						<section class="card-input">
+							<label for="currentDictionary">Current Dictionary</label>
+							<textarea disabled id="currentDictionary" cols="80" rows="7" type="text"></textarea>
+						</section>
+
+						<section class="card-operation">
+							<label for="addKeyToSearch">Key to search</label>
+							<input id="addKeyToSearch" type="text" />
+							<textarea disabled id="valueSearched" type="text" cols="35" rows="2"></textarea>
+							<button class="btn" onclick="btnSearchObjectInDictionary()">Search</button>
+						</section>
+						<section class="card-operation">
+							<label for="addKey">Input key</label>
+							<input id="addKey" type="text" />
+							<label for="addValue">value</label>
+							<input id="addValue" type="text" />
+							<button class="btn" onclick="btnAddObjectInDictionary()">Add</button>
+						</section>
+						<section class="card-operation">
+							<label for="updateKey">Update key</label>
+							<input id="updateKey" type="text" />
+							<label for="updateValue">value</label>
+							<input id="updateValue" type="text" />
+							<button class="btn" onclick="btnUpdateObjectInDictionary()">Update</button>
+						</section>
+						<section class="card-operation">
+							<label for="removeKey">Remove key</label>
+							<input name="removeKey" id="removeKey" type="text" />
+							<button class="btn" onclick="btnRemoveKey()">Remove</button>
+						</section>
+						<section class="card-operation">
+							<label for="outputSizeDictionary">Size</label>
+							<input disabled type="text" name="outputSizeDictionary" id="outputSizeDictionary" value="0" />
+						</section>
+						<section class="card-operation">
+							<label for="outputEmptyDictionary">Is empty?</label>
+							<input disabled type="text" name="outputEmptyDictionary" id="outputEmptyDictionary" value="true" />
+						</section>
+					</div>
+				</article>
 			</div>
+		</div>
 
-		</article>
-
-		<article class="card-stack">
-			<div class="card-body">
-				<div class="card-title">
-					<p>Stack</p>
-				</div>
-				<section class="card-input">
-					<label for="outputStack">Current stack</label>
-					<input disabled id="outputStack" type="text" />
-					
-				</section>
-				<section class="card-operation">
-					<label for="pushStack">Input data</label>
-					<input id="pushStack" type="text" />
-					<button class="btn" onclick="push()">Push</button>
-				</section>
-				<section class="card-operation">
-					<button class="btn" onclick="btnPop()">Pop</button>
-					<input disabled type="text" name="outputPop" id="outputPop">
-				</section>
-				<section class="card-operation">
-					<label for="outputSize">Size</label>
-					<input disabled type="text" name="outputSize" id="outputSize" value="0" />
-				</section>
-				<section class="card-operation">
-					<label for="outputEmpty">Is empty?</label>
-					<input disabled type="text" name="outputEmpty" id="outputEmpty" value="true">
-				</section>
-				<section class="card-operation">
-					<button class="btn" onclick="btnPeek()">Peek</button>
-					<input disabled type="text" name="outputPeek" id="outputPeek">
-				</section>
-
-			</div>
-		</article>
-
-		<article class="card-linkedlist">
-			<div class="card-body">
-				<div class="card-title">
-					<p>LinkedList</p>
-				</div>
-				<section class="card-input">
-					<label for="outputStack">Current LinkedList</label>
-					<input disabled id="currentLinkedList" type="text" />
-					
-				</section>
-				<section class="card-operation">
-					<label for="addLinkedList">Input data</label>
-					<input id="addLinkedList" type="text" />
-					<button class="btn" onclick="btnAddLinkedList()">Add</button>
-				</section>
-				<section class="card-operation">
-					<label for="addAtLinkedList">Input at index</label>
-					<input id="addAtLinkedList" type="number" />
-					<label for="addDataAtLinkedList">data</label>
-					<input id="addDataAtLinkedList" type="text" />
-					<button class="btn" onclick="btnAddAtLinkedList()">Add at</button>
-				</section>
-				<section class="card-operation">
-					<label for="removeFromLinkedList">Remove from</label>
-					<input type="number" name="removeFromLinkedList" id="aaa" />
-					<button class="btn" onclick="btnRemoveFromLinkedList()">Remove</button>
-				</section>
-				<section class="card-operation">
-					<label for="removeDataLinkedList">Remove data</label>
-					<input name="removeDataLinkedList" id="removeDataLinkedList" type="text" />
-					<button class="btn" onclick="btnRemoveDataLinkedList()">Remove</button>
-				</section>
-				<section class="card-operation">
-					<label for="outputSizeLinkedList">Size</label>
-					<input disabled type="text" name="outputSizeLinkedList" id="outputSizeLinkedList" value="0" />
-				</section>
-				<section class="card-operation">
-					<label for="outputEmptyLinkedList">Is empty?</label>
-					<input disabled type="text" name="outputEmptyLinkedList" id="outputEmptyLinkedList" value="true" />
-				</section>
-
-			</div>
-		</article>
-
-		<article class="card-simplyLinkedCircularList">
-			<div class="card-body">
-				<div class="card-title">
-					<p>Simply Linked Circular List</p>
-				</div>
-				<section class="card-input">
-					<label for="currentSimplyLinkedCircularList">Current List</label>
-					<input disabled id="currentSimplyLinkedCircularList" type="text" />
-				</section>
-				<section class="card-input">
-					<label for="currentSimplyLinkedCircularListData">Current data</label>
-					<input id="currentSimplyLinkedCircularListData" type="text" />
-					<button class="btn" onclick="btnSimplyLinkedCircularListNext()">Next</button>
-				</section>
-
-
-
-				<section class="card-operation">
-					<label for="addSimplyLinkedCircularList">Input data</label>
-					<input id="addSimplyLinkedCircularList" type="text" />
-					<button class="btn" onclick="btnAddSimplyLinkedCircularList()">Add</button>
-				</section>
-				<section class="card-operation">
-					<label for="addAtSimplyLinkedCircularList">Input at index</label>
-					<input id="addAtSimplyLinkedCircularList" type="number" />
-					<label for="addDataAtSimplyLinkedCircularList">data</label>
-					<input id="addDataAtSimplyLinkedCircularList" type="text" />
-					<button class="btn" onclick="btnAddAtSimplyLinkedCircularList()">Add at</button>
-				</section>
-				<section class="card-operation">
-					<label for="removeFromSimplyLinkedCircularList">Remove from</label>
-					<input type="number" name="removeFromSimplyLinkedCircularList" id="removeFromSimplyLinkedCircularList" />
-					<button class="btn" onclick="btnRemoveFromSimplyLinkedCircularList()">Remove</button>
-				</section>
-				<section class="card-operation">
-					<label for="removeDataSimplyLinkedCircularList">Remove data</label>
-					<input name="removeDataSimplyLinkedCircularList" id="removeDataSimplyLinkedCircularList" type="text" />
-					<button class="btn" onclick="btnRemoveDataSimplyLinkedCircularList()">Remove</button>
-				</section>
-				<section class="card-operation">
-					<label for="outputSizeSimplyLinkedCircularList">Size</label>
-					<input disabled type="text" name="outputSizeSimplyLinkedCircularList" id="outputSizeSimplyLinkedCircularList" value="0" />
-				</section>
-				<section class="card-operation">
-					<label for="outputEmptySimplyLinkedCircularList">Is empty?</label>
-					<input disabled type="text" name="outputEmptySimplyLinkedCircularList" id="outputEmptySimplyLinkedCircularList" value="true" />
-				</section>
-			</div>
-		</article>
-
-		<footer>
-			<h4>Footer</h4>
+		<footer class="my-footer">
+			<p>email: gerardo.8.soto@gmail.com</p>
+			<p><a href="https://github.com/Gerardo-Soto" target="_blank" rel="noopener noreferrer">My github.com/Gerardo-Soto</a></p>
+			<p><a href="https://gerardo-soto.github.io/" target="_blank" rel="noopener noreferrer">Profile: gerardo-soto.github.io</a></p>
 		</footer>
 
 		<script type="text/javascript" src="./js/fifo.js"></script>
 		<script type="text/javascript" src="./js/stack.js"></script>
 		<script type="text/javascript" src="./js/LinkedList.js"></script>
 		<script type="text/javascript" src="./js/simplyLinkedCircularList.js"></script>
+		<script type="text/javascript" src="./js/dictionary.js"></script>
 	</body>
 </html>
