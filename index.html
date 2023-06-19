@@ -18,7 +18,15 @@
 				<article class="card-fifo">
 					<div class="card-body">
 						<div class="card-title">
-							<p>Queue</p>
+							<div class="blockLeft--title"></div>
+							<div class="centered--title">
+								<h2>Queue</h2>
+							</div>
+							<div class="infoButton--right">
+								<div class="buttonCentered">
+									<button class="btn" id="informationQueue">Information</button>
+								</div>
+							</div>
 						</div>
 						<section class="card-input">
 							<label for="outputQueue">Current Queue</label>
@@ -45,15 +53,21 @@
 							<button class="btn" onclick="btnQueuePeek()">Peek</button>
 							<input disabled	 id="queuePeek" type="text" />
 						</section>
-						
 					</div>
-
 				</article>
 
 				<article class="card-stack">
 					<div class="card-body">
 						<div class="card-title">
-							<p>Stack</p>
+							<div class="blockLeft--title"></div>
+							<div class="centered--title">
+								<h2>Stack</h2>
+							</div>
+							<div class="infoButton--right">
+								<div class="buttonCentered">
+									<button class="btn" id="informationStack">Information</button>
+								</div>
+							</div>
 						</div>
 						<section class="card-input">
 							<label for="outputStack">Current stack</label>
@@ -88,7 +102,15 @@
 				<article class="card-linkedlist">
 					<div class="card-body">
 						<div class="card-title">
-							<p>LinkedList</p>
+							<div class="blockLeft--title"></div>
+							<div class="centered--title">
+								<h2>LinkedList</h2>
+							</div>
+							<div class="infoButton--right">
+								<div class="buttonCentered">
+									<button class="btn" id="informationLinkedList">Information</button>
+								</div>
+							</div>
 						</div>
 						<section class="card-input">
 							<label for="outputStack">Current LinkedList</label>
@@ -132,7 +154,15 @@
 				<article class="card-simplyLinkedCircularList">
 					<div class="card-body">
 						<div class="card-title">
-							<p>Simply Linked Circular List</p>
+							<div class="blockLeft--title"></div>
+							<div class="centered--title">
+								<h2>Simply Linked Circular List</h2>
+							</div>
+							<div class="infoButton--right">
+								<div class="buttonCentered">
+									<button class="btn" id="informationSimplyLinkedCircularList">Information</button>
+								</div>
+							</div>
 						</div>
 						<section class="card-input">
 							<label for="currentSimplyLinkedCircularList">Current List</label>
@@ -143,9 +173,6 @@
 							<input id="currentSimplyLinkedCircularListData" type="text" />
 							<button class="btn" onclick="btnSimplyLinkedCircularListNext()">Next</button>
 						</section>
-
-
-
 						<section class="card-operation">
 							<label for="addSimplyLinkedCircularList">Input data</label>
 							<input id="addSimplyLinkedCircularList" type="text" />
@@ -182,7 +209,15 @@
 				<article class="card-dictionary">
 					<div class="card-body">
 						<div class="card-title">
-							<p>Dictionary</p>
+							<div class="blockLeft--title"></div>
+							<div class="centered--title">
+								<h2>Dictionary</h2>
+							</div>
+							<div class="infoButton--right">
+								<div class="buttonCentered">
+									<button class="btn" id="informationDictionary">Information</button>
+								</div>
+							</div>
 						</div>
 						<section class="card-input">
 							<label for="currentDictionary">Current Dictionary</label>
@@ -233,6 +268,111 @@
 			<p><a href="https://gerardo-soto.github.io/" target="_blank" rel="noopener noreferrer">Profile: gerardo-soto.github.io</a></p>
 		</footer>
 
+
+		<div id="modalQueue" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Queue</h2>
+				<p>A Queue list, also known as a queue, is a data structure that follows the First-In-First-Out (FIFO) principle. Here are the pros and cons of a queue list:</p>
+
+					<p>Pros:</p>
+					
+					<li><b>Access order:</b> Items are handled in the order in which they were added, so the first item in is guaranteed to be the first item out.</li>
+					<li><b>Simple implementation:</b> Queues can be easily implemented using lists or arrays in many programming languages.</li>
+					<li><b>Common use:</b> Queues are widely used in algorithms and applications where it is important to maintain a specific order, such as in task management systems or process planning.</li>
+					<li><b>Efficient insertion and removal:</b> Adding an item to the end of the queue (enqueue) and removing the item from the front of the queue (dequeue) are fast and efficient operations.</li>
+					
+					<p>Cons:</p>
+					
+					<li><b>Limited access:</b> The structure of a queue does not allow random access to individual items. Only the element at the front of the queue can be accessed, and previous elements must be removed to access subsequent elements.</li>
+					<li><b>Not suitable for searching:</b> If you need to search for a specific item in the queue, it may be inefficient, as it would require deleting items from the queue until the desired item is found.</li>
+					<li><b>Limited size:</b> In some programming languages, queues have a predefined maximum size, which may limit the number of items that can be added.</li>
+				
+			</div>
+		</div>
+
+
+		<div id="modalStack" class="modal">
+			<div class="modal-content">
+				<span class="close" id="closeStack">&times;</span>
+				<h2>Stack</h2>
+				<p>A Stack list structure, also known as a stack, is a data structure that follows the Last-In-First-Out (LIFO) principle. Here are the pros and cons of a Stack list structure:</p>
+				
+				<p>Pros:</p>
+				<li><b>Simple implementation:</b> stacks can be easily implemented using lists or arrays in many programming languages.</li>
+				<li><b>Efficient insertion and removal:</b> Adding an item to the top of the stack (push) and removing the item from the top (pop) are fast and efficient operations.</li>
+				<li><b>Common use:</b> Stacks are widely used in algorithms and applications where it is important to maintain a specific order, such as in call management in operating systems or subroutine handling in programming languages.</li>
+				<li><b>Reversal of elements:</b> The structure of a stack allows to quickly reverse the order of elements on the stack using pop and push operations.</li>
+				
+				<p>Cons:</p>
+				<li><b>Limited access:</b> As in a queue, random access to individual elements in a stack is not efficient. Only the item at the top of the stack can be accessed, and the top items must be removed to access the lower items.</li>
+				<li><b>Not suitable for searching:</b> If you need to search for a specific element in the stack, it can be inefficient, as it would require removing elements from the stack until you find the desired element.</li>
+				<li><b>Limited size:</b> In some programming languages, stacks have a predefined maximum size, which may limit the number of elements that can be added.</li>
+					
+			</div>
+		</div>
+
+		<div id="modalLinkedList" class="modal">
+			<div class="modal-content">
+				<span class="close" id="closeLinkedList">&times;</span>
+				<h2>Linked List</h2>
+				<p>A LinkedList, or linked list, is a data structure in which each element, called a node, contains a value and a pointer or reference to the next node. Here are the pros and cons of a LinkedList:</p>
+				
+				<p>Pros:</p>
+				<li><b>Efficient insertion and deletion:</b> Unlike arrays, where moving elements to insert or delete at intermediate positions is required, in a LinkedList, insertion and deletion of elements can be done efficiently by simply updating the node pointers.</li>
+				<li><b>Dynamic size:</b> LinkedLists do not have a fixed predefined size, which means that items can be easily added or deleted without worrying about memory space.</li>
+				<li><b>Flexibility in memory allocation:</b> Unlike arrays, which usually require a contiguous block of memory, a LinkedList can store its nodes in scattered locations in memory, allowing for more flexible memory allocation.</li>
+				<li><b>Efficiency in concatenation:</b> joining or concatenating two LinkedLists is an efficient operation, since only the final pointers need to be updated.</li>
+
+				
+				<p>Cons:</p>
+				<li><b>sequential access:</b> Unlike arrays, where any element can be accessed directly using an index, in a LinkedList, one must traverse the list from the beginning to access an element at a specific position. This makes random access less efficient.</li>
+				<li><b>Additional memory usage:</b> In addition to storing item values, LinkedLists also require additional space to store pointers or references to subsequent nodes. This can consume more memory compared to arrays.</li>
+				<li><b>Increased implementation complexity:</b> The structure of a LinkedList and the associated operations require higher implementation complexity compared to simple arrays.</li>
+
+			</div>
+		</div>
+
+
+		<div id="modalSimplyLinkedCircularList" class="modal">
+			<div class="modal-content">
+				<span class="close" id="closeSimplyLinkedCircularList">&times;</span>
+				<h2>Simply Linked Circular List</h2>
+				<p>A simply linked circular list is a linked data structure where the last node in the list has a reference to the first node, thus creating a continuous loop. Here are some pros and cons of using a simply linked circular list:</p>
+				
+				<p>Pros:</p>
+				<li><b>Efficient access to the first and last item:</b> You can quickly access both the first and last items in the list, since they have direct references.</li>
+				<li><b>Efficient insert and delete operations:</b> Insert and delete operations at the beginning and end of the list are fast, since only a few references need to be updated.</li>
+				<li><b>Efficient memory usage:</b> Unlike a simply linked list, there is no need to maintain an additional pointer to the last node, resulting in more efficient memory usage.</li>
+				
+				
+				<p>Cons:</p>
+				<li><b>Difficulty performing operations in the middle of the list:</b> Insert or delete operations at intermediate positions in the list can be more complicated and less efficient. A traversal through the list is required to find the insertion or deletion point.</li>
+				<li><b>Increased implementation complexity:</b> The implementation of a simply linked circular list can be more complex than a simply linked list due to the need to correctly handle circular linking.</li>
+				<li><b>Higher propensity for infinite loops:</b> If not handled properly, there is a risk of entering infinite loops when traversing the list due to the circular nature of the structure.</li>
+			</div>
+		</div>
+
+
+		<div id="modalDictionary" class="modal">
+			<div class="modal-content">
+				<span class="close" id="closeDictionary">&times;</span>
+				<h2>Dictionaries</h2>
+				<p>Dictionaries, also known as maps or hash tables, are data structures that store elements in key-value pairs. Here are some pros and cons of using dictionaries as a data structure:</p>
+				
+				<p>Pros:</p>
+				<li><b>Search efficiency:</b> Dictionaries allow efficient lookup of elements using a key as a reference. This makes retrieval of items fast, even with large amounts of data.</li>
+				<li><b>Flexibility in data organization:</b> Dictionaries do not follow a specific order, making them suitable for storing and retrieving data without relying on a predefined order. You can access the elements directly through their key.</li>
+				<li><b>Ease of use:</b> Dictionaries usually have a simple interface for adding, deleting and updating items. You can perform operations such as insertion and deletion intuitively.</li>
+				
+				<p>Cons:</p>
+				<li><b>Memory usage:</b> Dictionaries can require more memory than other data structures due to the need to store both keys and associated values. This can be a problem if memory is limited or if you are handling large volumes of data.</li>
+				<li><b>Collisions:</b> In hash table-based dictionaries, there is the possibility of collisions, where two different keys can have the same hash value. This can affect performance and require additional mechanisms, such as collision resolution, to maintain data integrity.</li>
+				<li><b>Undetermined iteration order:</b> Unlike some other data structures, the order in which elements of a dictionary are iterated is not guaranteed. This can make processing elements in a specific order more complicated.</li>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="./js/modals.js"></script>
 		<script type="text/javascript" src="./js/fifo.js"></script>
 		<script type="text/javascript" src="./js/stack.js"></script>
 		<script type="text/javascript" src="./js/LinkedList.js"></script>
